@@ -1,4 +1,5 @@
-/*
+console.log ("week1lab");
+    /*
   Copyright (c) 2023 Promineo Tech
   Author:  Promineo Tech Academic Team
   Subject:  Variables and Operations Lab
