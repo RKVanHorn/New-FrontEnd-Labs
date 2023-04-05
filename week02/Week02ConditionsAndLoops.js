@@ -97,8 +97,14 @@ Question 3: Username & Password \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+var username = "Tommy123"
+var password = "12345"
 
-
+if (username == "Tommy123" && password == "12345" || username == "Timmy456" && password == "6789") {
+console.log("Admin Login Successful")
+} else {
+   console.log("Admin Access Denied")
+}
 
 /*-------------------------------------------------------*/
 
@@ -118,7 +124,24 @@ Question 4: Student Class \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+var studentClass
+var studentGrade = 9
 
+if (studentGrade >= 0 && studentGrade <= 6) {
+   studentClass = 'Elementary'
+} else if (studentGrade == 7 || studentGrade == 8) {
+   studentClass = 'Middle'
+} else if (studentGrade == 9) {
+   studentClass = 'Freshman'
+} else if (studentGrade == 10) {
+   studentClass = 'Sophomore'
+} else if (studentGrade == 11) {
+   studentClass = 'Junior'
+} else if (studentGrade == 12) {
+   studentClass = 'Senior'
+} else console.log('Error')
+
+console.log (studentClass)
 
 /*-------------------------------------------------------*/
 
@@ -160,11 +183,11 @@ Question 6: Debugging an infinite loop! \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-   /*    
-   for (let i = 11; i > 10; i++) { 
+    
+   for (let i = 0; i < 10; i++) { 
       console.log(i);   
    } 
-  */
+
 
 
 
