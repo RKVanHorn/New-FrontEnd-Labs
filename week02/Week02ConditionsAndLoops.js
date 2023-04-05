@@ -45,8 +45,15 @@ Question 1: Driving the speed limit.. ? \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
-
+var speedLimit = 75
+var mySpeed = 75
+if (mySpeed > speedLimit) {
+   console.log ('Slow Down! Mom is mad!');
+} else if (mySpeed == speedLimit) {
+   console.log ('Everyone is happy!');
+} else if (mySpeed < speedLimit) {
+   console.log ('Speed up! Dad is mad!');
+}
 /*-------------------------------------------------------*/
 
 console.log(`--------------------------
@@ -64,6 +71,14 @@ Question 2: Is it time to wake up for work? \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+var alarmSet = true
+var weekDay = false
+
+if (alarmSet && weekDay) {
+   console.log ('Sound Alarm! Time for work!');
+} else {
+   console.log ('I can sleep in!');
+}
 
 
 /*-------------------------------------------------------*/
@@ -81,6 +96,7 @@ Question 3: Username & Password \n`);
  *	        - otherwise, print "Admin Access Denied"
  * 
  * ↓ YOUR CODE HERE ↓ */
+
 
 
 
@@ -117,6 +133,19 @@ Question 5: Loops! \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+for (i = 10; i > -11; i --) {
+   console.log (i);
+}
+
+let num = 0
+do {
+   num ++; {
+      if (num % 4 == 0) {
+         console.log (num);
+      }
+   }
+   
+} while (num < 50);
 
 
 /*-------------------------------------------------------*/
