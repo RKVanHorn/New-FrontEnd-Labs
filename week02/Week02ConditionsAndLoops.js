@@ -151,7 +151,7 @@ do {
 /*-------------------------------------------------------*/
 
 console.log(`--------------------------
-Question 5: Debugging an infinite loop! \n`);
+Question 6: Debugging an infinite loop! \n`);
 
 /**
  * Step 1: Read through the written code below.
@@ -159,6 +159,12 @@ Question 5: Debugging an infinite loop! \n`);
  * Step 2: Uncomment out to test
  * 
  * ↓ YOUR CODE HERE ↓ */
+
+   /*    
+   for (let i = 11; i > 10; i++) { 
+      console.log(i);   
+   } 
+  */
 
 
 
