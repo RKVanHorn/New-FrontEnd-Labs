@@ -40,7 +40,8 @@ let alphabetString = 'abcdefghijklmnopqrstuvwxyz';
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
+// 
+console.log(alphabetString.split(''));
 
 
 
@@ -58,9 +59,15 @@ let alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
+// let reverseAlphabetArray = alphabetArray.reverse();
+// for(let alpha = 0; alpha < reverseAlphabetArray.length; alpha++){
+//        console.log(reverseAlphabetArray[alpha]);
+// }
+console.log(alphabetArray.reverse());
 
-
-
+// let alphabetArrayJoin = alphabetArray.join('');
+// console.log(alphabetArrayJoin);
+console.log(alphabetArray.join(''));
 
 
 
@@ -82,8 +89,21 @@ let array1 = [1, 5, 6, 9, 10, 14];
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+// console.log(array1);
+// console.log(array1[2]);
+// console.log(array1[5]);
+// array1.push (16, 3);
+// console.log(array1);
+// console.log(array1[2]);
+// console.log(array1[7]);
 
-
+console.log(array1);
+console.log(array1[2]);
+console.log(array1[array1.length-1]);
+array1.push(16, 3);
+console.log(array1);
+console.log(array1[2]);
+console.log(array1[array1.length-1]);
 
 
 
@@ -102,7 +122,17 @@ Question 4: Todo List \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
+let myTodoList = [];
+myTodoList.push("brush teeth", "wash face", "set alarm");
+console.log(myTodoList);
+myTodoList.splice(1,1);
+console.log(myTodoList);
+let yourTodoList = ["pick up dog poop", "water plants"];
+console.log(yourTodoList);
+// let ourTodoList = [...myTodoList, ...yourTodoList];
+// console.log(ourTodoList);
+let ourTodoList = myTodoList.concat(yourTodoList);
+console.log(ourTodoList);
 
 
 
@@ -122,7 +152,13 @@ Question 5: isEven  \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
+function isEven(x){
+     if(x % 2 === 0){
+       return true;
+     } else {
+       return false;
+     }
+}
 
 
 
@@ -130,10 +166,10 @@ Question 5: isEven  \n`);
 /* ↑ YOUR CODE HERE ↑ */
 
 //! Sample test cases for the above isEven function (uncomment to test)
-//console.log(isEven(2));   //should return true
-//console.log(isEven(3));   //should return false
-//console.log(isEven(4));   //should return true
-//console.log(isEven(5));   //should return false
+console.log(isEven(2));   //should return true
+console.log(isEven(3));   //should return false
+console.log(isEven(4));   //should return true
+console.log(isEven(5));   //should return false
 
 
 
@@ -152,16 +188,22 @@ Question 6: addingMachine \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
+function addingMachine(x){
+       let sum = 0;
+       for(let i = 0; i < x.length; i ++){
+        sum += x[i];
+     }  
+     return sum;
+}
 
 
 
 /* ↑ YOUR CODE HERE ↑ */
 
 //! Sample test cases for the above isEven function (uncomment to test)
-//console.log(addingMachine([1, 2, 3, 4, 5]));                    //should return 15
-//console.log(addingMachine([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));    //should return 55
-//console.log(addingMachine([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])); //should return 120
+console.log(addingMachine([1, 2, 3, 4, 5]));                    //should return 15
+console.log(addingMachine([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));    //should return 55
+console.log(addingMachine([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])); //should return 120
 
 
 
@@ -184,23 +226,38 @@ Question 7: reverse \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
+function reverse(x){
+       if(typeof x === "boolean"){
+              return !x;
+       }else if(typeof x === "number"){
+        return x.toString().split('').reverse().join('')
+       }else if(typeof x === "string"){
+        return x.split('').reverse().join('')
+       }else if (Array.isArray(x)){
+              return x.reverse()
+       }else{
+              return false
+       }
+// }
+
+// function reverse(x){
+
+}
 
 
+// /* ↑ YOUR CODE HERE ↑ */
 
-
-
-/* ↑ YOUR CODE HERE ↑ */
-
-// Sample test cases for the above reverse function (uncomment to test)
-//console.log(reverse(1234));         //should return 4321
-//console.log(reverse('hello'));      //should return 'olleh'
-//console.log(reverse(true));         //should return false
-//console.log(reverse([1, 2, 3, 4])); //should return [4, 3, 2, 1]
+// // Sample test cases for the above reverse function (uncomment to test)
+console.log(reverse(1234));         //should return 4321
+console.log(reverse('hello'));      //should return 'olleh'
+console.log(reverse(false));         //should return false
+console.log(reverse([1, 2, 3, 4])); //should return [4, 3, 2, 1]
 
 
 
 
 // Question 8: removeElements 
+
 console.log(`--------------------------
 Question 8: removeElements \n`);
     
@@ -218,14 +275,18 @@ Question 8: removeElements \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
+function removeElements(array){
+       while(array.length > 0){
+              array.pop();
+       }return array;
+}
 
 
 
 /* ↑ YOUR CODE HERE ↑ */
 
 // Sample test cases for the above removeElements function (uncomment to test)
-//console.log(removeElements([1, 2, 3, 4, 5])); //should return [] (an empty array)
+console.log(removeElements([1, 2, 3, 4, 5])); //should return [] (an empty array)
 
 
 
@@ -245,13 +306,19 @@ Question 9: whichArrayIsLonger  \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
+function whichArrayIsLonger(array1, array2){
+       if(array1.length === array2.length){
+              return false;
+       } else if(array1.length > array2.length){
+              return array1;
+       } else {return array2;}
+}
 
 
 
 /* ↑ YOUR CODE HERE ↑ */
 
 // Sample test cases for the above whichArrayIsLonger function (uncomment to test)
-//console.log(whichArrayIsLonger([1, 2, 3, 4, 5], [1, 2, 3, 4]));    //should return [1, 2, 3, 4, 5]
-//console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4, 5, 6])); ///should return [1, 2, 3, 4, 5, 6]
-//console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4]));       //should return false (because they are the same length)
+console.log(whichArrayIsLonger([1, 2, 3, 4, 5], [1, 2, 3, 4]));    //should return [1, 2, 3, 4, 5]
+console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4, 5, 6])); ///should return [1, 2, 3, 4, 5, 6]
+console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4]));       //should return false (because they are the same length)
