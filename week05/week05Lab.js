@@ -57,7 +57,7 @@ console.log(
  *
  * ↓ YOUR CODE HERE ↓ */
 // "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
-
+console.log(`On July 20th ${person.year}, ${person.firstname} ${person.lastname} was the first person to set foot on the Earth's moon.`)
 /*-------------------------------------------------------*/
 // Question 2: Instance of a Class
 console.log(`--------------------------
@@ -85,7 +85,8 @@ greeting.hello()
  * Step 3: A greeting should print to the console
  *
  * ↓ YOUR CODE HERE ↓ */
-
+let greeting2 = new Greeting('Rachel', 'Las Vegas');
+greeting2.hello();
 /*-------------------------------------------------------*/
 // Question 3: myBook
 console.log(`--------------------------
@@ -114,7 +115,14 @@ class Book {
  * Step 7: Invoke the describe method for the yourBook instance. Make it print to the console also.
  *
  * ↓ YOUR CODE HERE ↓ */
-
+let myBook = new Book('Pride and Prejudice', 'Jane Austen');
+console.log(myBook.title); //why won't these work? //I had .this in there
+console.log(myBook.author);
+console.log(myBook.describe());
+let yourBook = new Book('If Only You', 'Chloe Liese');
+console.log(yourBook.title);
+console.log(yourBook.author);
+console.log(yourBook.describe());
 /*-------------------------------------------------------*/
 // Question 4: Create a Class
 console.log(`--------------------------
@@ -129,7 +137,23 @@ Question 4: Create a Class \n`)
  *
  *
  * ↓ YOUR CODE HERE ↓ */
+class Fruit {
+  constructor(name, color, taste){
+    this.name = name;
+    this.color = color;
+    this.taste = taste;
+  }
+  describe(){
+    console.log (`A ${this.name} is ${this.color} and tastes ${this.taste}.`);
+  }
+}
 
+let fruit1 = new Fruit('lime', 'green', 'sour');
+let fruit2 = new Fruit('banana', 'yellow', 'sweet');
+// console.log(fruit1.describe());
+// console.log(fruit2.describe());
+fruit1.describe(); //why does this not print to console? It did for greeting and greeting2
+fruit2.describe();
 /*-------------------------------------------------------*/
 // Question 5: Inheritance and Polymorphism
 console.log(`--------------------------
@@ -173,7 +197,10 @@ class Teacher extends Person {
  * Step 4: Call the introduction method on your new teacher instance AND the details method, make sure that the results are printed to the console.
  *
  * ↓ YOUR CODE HERE ↓ */
-
+let student = new Student('Jacky', 'student');
+let teacher = new Teacher(`Mr. Bean`, 'teacher');
+console.log(student.introduction() + ' ' + student.details());
+console.log(`${teacher.introduction()} ${teacher.details()}`);
 /*-------------------------------------------------------*/
 // Question 6: Inheritance
 console.log(`--------------------------
@@ -199,7 +226,13 @@ class Parent {
  * HINT: You should be using vital key terms like extends and super
  *
  * ↓ YOUR CODE HERE ↓ */
-
+class Child extends Parent {
+  constructor(name, age) {
+    super(name, age)
+  }
+}
+let child = new Child('Pugsley', '10');
+child.details();
 /*-------------------------------------------------------*/
 // Question 7: Put it all together
 console.log(`--------------------------
@@ -218,5 +251,47 @@ Question 7: Put it all together \n`)
  * Step 10: Display the movies information to the console, using the new instance list
  *
  * ↓ YOUR CODE HERE ↓ */
+class Movie {
+  constructor (title, director){
+    this.title = title
+    this.director = director
+  }
+  describe() {
+    return(`The movie, ${this.title}, was directed by ${this.director}.`);
+  }
+
+}
+
+class List {
+  constructor (){
+    this.movies = []
+  }
+  addMovie(movie){
+    this.movies.push(movie);
+  }
+  displayMovies(){
+    let movieList = ``
+    for(let i = 0; i < this.movies.length; i++){
+     movieList += `${this.movies[i].describe()}\n`  
+    } return movieList
+  }
+}
+let movie1 = new Movie(`Jurassic Park`, `Steven Spielberg`);
+let movie2 = new Movie(`How the Grinch Stole Christmas`, `Ron Howard`);
+console.log(movie1.describe());
+console.log(movie2.describe());
+
+let list = new List();
+list.addMovie(movie1);
+list.addMovie(movie2);
+console.log(list.displayMovies());
+
+
+
+
+
+
+
+
 
 console.log(`-----------Finished------------`)
