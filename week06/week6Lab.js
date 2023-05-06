@@ -78,6 +78,14 @@ console.log(`1a: Sorted array of numbers:`)
 // arrayOfNumbers = arrayOfNumbers.sort((a, b) => a - b)
 
 // console.log(arrayOfNumbers)
+
+//after debugging - changed const to let
+
+let arrayOfNumbers = [1, 5, 3, 2, 4]
+arrayOfNumbers = arrayOfNumbers.sort((a, b) => a - b)
+console.log(arrayOfNumbers)
+
+
 /*----------------------------------------------------*/
 console.log(`1b: Manage my wallet `)
 
@@ -100,10 +108,32 @@ console.log(`1b: Manage my wallet `)
 // myWallet.addMoney(3)
 
 // console.log(myWallet.money)
+
+//after debug - added this. to add and remove methods
+
+class Wallet {
+  constructor(startingMoney) {
+    this.money = startingMoney
+  }
+
+  addMoney(amount) {
+    this.money += amount
+  }
+
+  removeMoney(amount) {
+    this.money -= amount
+  }
+}
+
+const myWallet = new Wallet(100)
+myWallet.removeMoney(14.99)
+myWallet.addMoney(3)
+
+console.log(myWallet.money)
 /*----------------------------------------------------*/
 console.log(`1c: Day of the Week`)
-//In some cases, there's no error, but you're not getting your expected result back.
-//Reminder: Switch statements are a 'cleaner' version of if/else
+// In some cases, there's no error, but you're not getting your expected result back.
+// Reminder: Switch statements are a 'cleaner' version of if/else
 
 // const dayOfTheWeek = (num) => {
 //   switch (num) {
@@ -127,6 +157,38 @@ console.log(`1c: Day of the Week`)
 // }
 
 // console.log(dayOfTheWeek(5)) // should log Friday
+
+//after debug
+
+const dayOfTheWeek = (num) => {
+  switch (num) {
+    case 1:
+     return 'Monday'
+     break;
+    case 2:
+     return 'Tuesday'
+     break;
+    case 3:
+     return 'Wednesday'
+     break;
+    case 4:
+     return 'Thursday'
+     break;
+    case 5:
+     return 'Friday'
+     break;
+    case 6:
+     return 'Saturday'
+     break;
+    case 7:
+     return 'Sunday'
+     break;
+    default:
+      console.log('Err. Something went wrong.')
+  }
+}
+
+console.log(dayOfTheWeek(5))
 /*----------------------------------------------------*/
 console.log(`1d: Only wizards shall pass!`)
 
@@ -159,5 +221,37 @@ console.log(`1d: Only wizards shall pass!`)
 
 // //check out the console.table() method you can use on objects!
 // console.table(onlyWizards(movieCharacters)) //expecting an array of characters whose key/value pair is = isAWizard: true
+
+
+//afterdebug - added .isAWaizard after character in the filter function
+const movieCharacters = [
+  {
+    name: 'Howl',
+    isAWizard: true,
+    quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+  },
+  {
+    name: 'Kalcifer',
+    isAWizard: false,
+    quote: `I don't cook! I'm a scary and powerful fire demon!`,
+  },
+  {
+    name: 'Gandalf',
+    isAWizard: true,
+    quote: `You shall not pass!`,
+  },
+  {
+    name: 'Luke Skywalker',
+    isAWizard: false,
+    quote: `May the Force be with you.`,
+  },
+]
+
+function onlyWizards(arrayOfCharacters) {
+  return arrayOfCharacters.filter((character) => character.isAWizard == true)
+}
+
+//check out the console.table() method you can use on objects!
+console.table(onlyWizards(movieCharacters)) //expecting an array of characters whose key/value pair is = isAWizard: true
 /*----------------------------------------------------*/
 console.log(`-----------Finished------------`)
