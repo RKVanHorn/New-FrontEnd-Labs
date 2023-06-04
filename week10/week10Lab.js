@@ -27,7 +27,7 @@
 
 /*------------------------ Creating a website with only JS ------------------------*/
 console.log(`-------------------------- 
-Part 1: Create a form with only JavaScript`)
+Part 1: Create a form with only JavaScript`);
 
 /** 
  *
@@ -42,13 +42,30 @@ Part 1: Create a form with only JavaScript`)
            Do the same steps, appending a label/input for Email, and a submit button to your form.
  * ↓ YOUR CODE HERE ↓ */
 
-// console.log(myForm)
+let myForm = document.createElement("form");
+let myLabel = document.createElement("label");
+let myInput = document.createElement("input");
+let emailLabel = document.createElement("label");
+let emailInput = document.createElement("input");
+let button = document.createElement("button");
+myLabel.innerHTML = "Name";
+myForm.append(myLabel);
+myForm.append(myInput);
+emailLabel.innerHTML = "Email";
+myForm.append(emailLabel);
+myForm.append(emailInput);
+button.innerHTML = "Submit";
+myForm.append(button);
+document.body.append(myForm);
+
+console.log(myForm);
+
 //Question: Besides changing the innerHTML, what other HTML things can we change using JavaScript?
 //Answer:
 
 /*------------------------ Styling a form with only JavaScript------------------------*/
 console.log(`-------------------------- 
-Part 2: Styling our form with only JavaScript`)
+Part 2: Styling our form with only JavaScript`);
 
 /**
  *  Hint: element.style.cssProperty = ''
@@ -60,12 +77,16 @@ Part 2: Styling our form with only JavaScript`)
  *
  * ↓ YOUR CODE HERE ↓ */
 
+myForm.style.backgroundColor = "lavender";
+myForm.style.display = "flex";
+myForm.style.flexDirection = "column";
+myForm.style.maxWidth = "250px";
 //Question: Do you prefer styling with JavaScript or CSS?
-//Answer:
+//Answer: CSS much more
 
 /*------------------------ Creating a table with only JavaScript ------------------------*/
 console.log(`-------------------------- 
-Part 3: Creating a table with only JavaScript`)
+Part 3: Creating a table with only JavaScript`);
 
 /*
  * Note: Most of these steps are similar to Part 1.
@@ -79,15 +100,27 @@ Part 3: Creating a table with only JavaScript`)
 
  * Final Step: Style your table using JavaScript starting with a border. You may need to target more element/nodes than we did with myTable.
  * ↓ YOUR CODE HERE ↓ */
+let myTable = document.createElement("table");
+let tableRow = document.createElement("tr");
+let tableData1 = document.createElement("td");
+let tableData2 = document.createElement("td");
+tableData1.innerHTML = "Name";
+tableData2.innerHTML = "Email";
+myTable.append(tableRow);
+tableRow.append(tableData1);
+tableRow.append(tableData2);
+document.body.append(myTable);
 
-// console.log(myTable)
+myTable.style.border = "solid black 1px";
+
+console.log(myTable);
 //Question: While this is clearly a more round-about way of making a table, how can using JavaScript in this way
 //          more beneficial than HTML?
 //Answer:
 
 /*------------------------ Changing our body background on click ------------------------*/
 console.log(`-------------------------- 
-Part 4: Changing our background on click`)
+Part 4: Changing our background on click`);
 /**
  * Documentation: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
  *
@@ -103,13 +136,53 @@ Part 4: Changing our background on click`)
  * Step 7: Click the button in your index.html and see the background change!
  *
  * ↓ YOUR CODE HERE ↓ */
+const myButton = document.getElementById("myButton");
 
+myButton.addEventListener("click", () => {
+  document.body.style.backgroundColor = `rgb(${Math.random() * 255}, ${
+    Math.random() * 255
+  }, ${Math.random() * 255})`;
+});
 //Question: What other event listeners are there?
 //             Try them out by replacing 'click' in your function above!
 //Answer:
 
-console.log(`-----------Finished------------`)
+console.log(`-----------Finished------------`);
 
+let newDiv = document.createElement("div");
+newDiv.innerHTML = "Hello";
+document.body.append(newDiv);
+newDiv.style.margin = "5px";
+newDiv.style.padding = "10px";
+newDiv.style.maxWidth = "250px";
+newDiv.style.textAlign = "center";
+newDiv.style.border = "1px solid black";
+newDiv.style.backgroundColor = "black";
+newDiv.style.color = "white";
+let divButton = document.createElement("button");
+divButton.innerHTML = "Change Me!";
+document.body.append(divButton);
+divButton.addEventListener("click", () => {
+  if (newDiv.innerHTML == "Hello") {
+    newDiv.innerHTML = "World";
+  } else {
+    newDiv.innerHTML = "Hello";
+  }
+});
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+  let newTr = document.createElement("tr");
+  let name = document.createElement("td");
+  let email = document.createElement("td");
+  name.innerHTML = myInput.value;
+  email.innerHTML = emailInput.value;
+  myTable.append(newTr);
+  newTr.append(name);
+  newTr.append(email);
+  myInput.value = "";
+  emailInput.value = "";
+});
 /**
  * Extra Project Ideas:
  *
