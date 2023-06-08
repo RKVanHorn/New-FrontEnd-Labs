@@ -119,6 +119,18 @@
       "lastname": "Walsh",
       "grade": 79,
       "id": "20"
+    },
+    {
+      "firstname": "Frank",
+      "lastname": "Filmore",
+      "grade": "59",
+      "id": "g5tUZC4"
+    },
+    {
+      "firstname": "Rachel",
+      "lastname": "VanHorn",
+      "grade": "95",
+      "id": "c6nhvFW"
     }
   ]
 }
