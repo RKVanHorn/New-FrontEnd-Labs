@@ -15,7 +15,87 @@
   </head>
   <body>
     <!-- Your HTML Code below here -->
+    <div class="card m-5">
+      <div class="card-header">
+        <h2 class="display-4 text-center">Student Registration</h2>
+      </div>
 
+      <div class="card-body">
+        <form>
+          <div class="row m-3">
+            <div class="col-md">
+              <label for="nameInput" class="form-label">Student Name</label>
+              <input type="text" class="form-control" id="nameInput" required />
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col-md-4">
+              <label for="researchInput" class="form-label"
+                >Research Assignment</label
+              >
+              <input type="text" class="form-control" id="researchInput" />
+            </div>
+          </div>
+        </form>
+        <button class="btn btn-info m-3" id="submitButton">Submit</button>
+      </div>
+    </div>
+    <div class="card m-5">
+      <div class="card-header">
+        <h2 class="display-4 text-center">Update Student</h2>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row m-3">
+            <div class="col-md-2">
+              <label for="idInput" class="form-label">Student Id</label>
+              <input type="text" class="form-control" id="idInput" required />
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col-md">
+              <label for="nameUpdate" class="form-label">Student Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nameUpdate"
+                required
+              />
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col-md-4">
+              <label for="researchUpdate" class="form-label"
+                >Research Assignment</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="researchUpdate"
+                required
+              />
+            </div>
+          </div>
+          <button class="btn btn-info m-3" id="updateButton">Update</button>
+        </form>
+      </div>
+    </div>
+    <div class="card m-5">
+      <div class="card-header display-4 text-center">Current Roster</div>
+      <div class="card-body">
+        <table class="table table-striped" id="studentTable">
+          <thead>
+            <tr>
+              <th>Student Id</th>
+              <th>Student Name</th>
+              <th>Assignment</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
     <!-- ALL OF YOUR JQUERY/BOOTSTRAP/SCRIPT SETUP ARE BELOW HERE. 
   WE USE CDN'S (content delivery network) INSTEAD OF NODE_MODULES -->
 
