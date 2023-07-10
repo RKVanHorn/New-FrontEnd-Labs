@@ -181,21 +181,150 @@
  */
 
 /*-- ALL IMPORTS HERE -- */
-import './App.css'
+import "./App.css";
+import { useState, useEffect } from "react";
 
 function App() {
   /* -- YOUR CODE/CRUD OPERATIONS HERE --*/
+  const URL = "https://648b4e4317f1536d65eac305.mockapi.io/api/employee";
+
+  const [users, setUsers] = useState([{}]);
+  const [newUserName, setNewUserName] = useState("");
+  const [newUserJobTitle, setNewUserJobTitle] = useState("");
+  const [newUserCompanyName, setNewUserCompanyName] = useState("");
+  const [updatedName, setUpdatedName] = useState("");
+  const [updatedJobTitle, setUpdatedJobTitle] = useState("");
+  const [updatedCompanyName, setUpdatedCompanyName] = useState("");
+
+  const getUsers = () => {
+    fetch(URL)
+      .then((data) => data.json())
+      .then((data) => setUsers(data));
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const deleteUser = (id) => {
+    fetch(`${URL}/${id}`, {
+      method: "DELETE",
+    }).then(() => getUsers());
+  };
+
+  const postNewUser = (e) => {
+    e.preventDefault();
+    fetch(URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: newUserName,
+        jobTitle: newUserJobTitle,
+        companyName: newUserCompanyName,
+      }),
+    }).then(() => getUsers());
+    setNewUserName("");
+    setNewUserJobTitle("");
+    setNewUserCompanyName("");
+  };
+
+  const updateUser = (e, userObject) => {
+    e.preventDefault();
+    const updatedUserObject = {
+      ...userObject,
+      name: updatedName,
+      jobTitle: updatedJobTitle,
+      companyName: updatedCompanyName,
+    };
+
+    fetch(`${URL}/${userObject.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedUserObject),
+    }).then(() => getUsers());
+    setUpdatedName("");
+    setUpdatedJobTitle("");
+    setUpdatedCompanyName("");
+  };
 
   return (
     <div className="App">
       {/* CODE BELOW: PART: 5.3 Connecting our POST */}
-
+      <form className="post-form">
+        <h3>Post new user form</h3>
+        <label htmlFor="name-input">Name</label>
+        <input
+          id="name-input"
+          type="text"
+          placeholder="Enter new user name"
+          onChange={(e) => setNewUserName(e.target.value)}
+          value={newUserName}
+        />
+        <label htmlFor="jobTitle-input">Job Title</label>
+        <input
+          id="jobTitle-input"
+          type="text"
+          placeholder="Enter new user job title"
+          onChange={(e) => setNewUserJobTitle(e.target.value)}
+          value={newUserJobTitle}
+        />
+        <label htmlFor="company-input">Company</label>
+        <input
+          id="company-input"
+          type="text"
+          placeholder="Enter new user company"
+          onChange={(e) => setNewUserCompanyName(e.target.value)}
+          value={newUserCompanyName}
+        />
+        <button onClick={(e) => postNewUser(e)}>Submit</button>
+      </form>
       {/* CODE BELOW: PART 5.1: Connecting our GET  //  PART 5.4: Connecting our UPDATE */}
+      {users.map((user, index) => (
+        <div className="user-container" key={index}>
+          <div>
+            Name: {user.name} <br></br>
+            Job Title: {user.jobTitle} <br></br>
+            Company Name: {user.companyName} <br></br>
+            <button onClick={() => deleteUser(user.id)}>🗑 Delete</button>
+            <form>
+              <h3>Update this user</h3>
+              <label htmlFor="updatedName-input">Updated Name</label>
+              <input
+                id="updatedName-input"
+                type="text"
+                placeholder="Enter updated name"
+                onChange={(e) => setUpdatedName(e.target.value)}
+                value={updatedName}
+              />
+              <br></br>
+              <label htmlFor="updatedJobTitle-input">Updated Job Title</label>
+              <input
+                id="updatedJobTitle-input"
+                type="text"
+                placeholder="Enter updated job title"
+                onChange={(e) => setUpdatedJobTitle(e.target.value)}
+                value={updatedJobTitle}
+              />
+              <br></br>
+              <label htmlFor="updatedCompany-input">Company</label>
+              <input
+                id="updatedCompany-input"
+                type="text"
+                placeholder="Enter updated company"
+                onChange={(e) => setUpdatedCompanyName(e.target.value)}
+                value={updatedCompanyName}
+              />
+              <br></br>
+              <button onClick={(e) => updateUser(e, user)}>Update</button>
+            </form>
+          </div>
+        </div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
 
 /**
  *     While this lab focused mostly on functionality over practicality,
